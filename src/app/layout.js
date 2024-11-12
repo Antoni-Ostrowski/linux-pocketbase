@@ -1,8 +1,7 @@
-import localFont from "next/font/local";
 import "./globals.css";
 
 import { Inter } from "next/font/google";
-import Link from "next/link";
+
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Create Next App",
@@ -12,12 +11,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <div id="navbar">
-        <div>
-          <Link href={"/strona1"}>Strona 1</Link>
-          <Link href={"/strona2"}>Strona 1</Link>
-        </div>
-      </div>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );

@@ -12,20 +12,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import Link from "next/link";
-export default function Menu({
-  pb,
-  user,
-  logIn,
-  logOut,
-  loginPage,
-  registerPage,
-}) {
+export default function Menu({ pb, user, setUser2, logIn, logOut }) {
   console.log(user);
 
   return (
     <div className="flex justify-start items-center flex-col">
-      {user !== null && (
+      {user && (
         <>
           <Avatar>
             <AvatarImage
@@ -41,13 +35,13 @@ export default function Menu({
 
       <DropdownMenu>
         <DropdownMenuTrigger>
-          {user === null ? "nie zalogowany" : "zalogowany"}
+          {!user ? "nie zalogowany" : "zalogowany"}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {user === null ? (
-            <Link href={loginPage}>
+          {!user ? (
+            <Link href={"/cwiczenie/login"}>
               <DropdownMenuItem
                 onClick={() => {
                   // logIn(pb.authStore.model);
